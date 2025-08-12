@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Data Kelas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    h2 {
+      color: #333;
+    }
+    input, button {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      cursor: pointer;
+      border: none;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    .decoration {
+      height: 8px;
+      background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="decoration"></div>
+    <h2>Form Data Kelas</h2>
+    <form name="submit-to-google-sheet">
+      <input type="text" name="nama" placeholder="Masukkan Nama" required>
+      <input type="text" name="kelas" placeholder="Masukkan Kelas" required>
+      <button type="submit">Kirim</button>
+    </form>
+    <p id="msg"></p>
+  </div>
+
+  <script>
+    const scriptURL = 'LINK_SCRIPT_GOOGLE_APPS_SCRIPT'; // Ganti dengan URL Web App kamu
+    const form = document.forms['submit-to-google-sheet'];
+    const msg = document.getElementById('msg');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+          msg.innerHTML = "✅ Data terkirim!";
+          form.reset();
+        })
+        .catch(error => {
+          msg.innerHTML = "❌ Gagal mengirim!";
+          console.error('Error!', error.message);
+        });
+    });
+  </script>
+</body>
+</html>
