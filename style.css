@@ -1,0 +1,106 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #f4f4f4;
+    color: #333;
+}
+
+/* Navbar */
+header {
+    background: #0066cc;
+    color: #fff;
+    padding: 10px 0;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: auto;
+    padding: 0 20px;
+}
+nav h1 {
+    font-size: 1.5em;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+}
+nav ul li {
+    margin-left: 20px;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+nav ul li a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Konten utama */
+main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+}
+
+/* Sections */
+section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+/* Articles */
+.articles article {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+.articles h3 a {
+    color: #0066cc;
+    text-decoration: none;
+}
+.articles h3 a:hover {
+    text-decoration: underline;
+}
+
+/* Profile */
+.profile p {
+    margin: 10px 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #0066cc;
+    color: white;
+    margin-top: 20px;
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 5px;
+    }
+}
